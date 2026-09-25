@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eliana Anderson | Portfolio</title>
+    <meta name="description" content="Eliana Anderson: Honors Political Science and Economics student at Howard University. Research, data storytelling and public service.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         TOP BAR — name, section links, scroll progress
+    =========================================== -->
+
+    <header class="topbar" id="topbar">
+        <a class="tb-name" href="#top">ELIANA ANDERSON <b>#30</b></a>
+        <nav class="tb-links" aria-label="Sections">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#project">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#leadership">Leadership</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <span class="tb-score" aria-live="polite"><small>PTS</small> <b id="tbPoints">0</b></span>
+        <span class="tb-progress" id="tbProgress"></span>
+    </header>
+
+
+    <main>
+
+        <!-- ======================================
+             TITLE
+        ======================================= -->
+
+        <section class="hero" id="top">
+            <span class="hero-num" aria-hidden="true">30</span>
+
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <p class="kicker">HOWARD UNIVERSITY · CLASS OF 2030</p>
+                    <p class="crawl">A long time ago, on a court far, far away…</p>
+
+                    <h1>ELIANA<br><span class="accent">ANDERSON</span></h1>
+
+                    <p class="hero-role">Political Science &amp; Economics · Research · Data Storytelling</p>
+
+                    <p class="setup">
+                        Honors student at Howard University studying how
+                        historical institutionalism has shaped the political
+                        economy of Black opportunity, one dataset at a time.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="btn-red" href="#experience">WATCH THE GAME FILM ↓</a>
+                        <a class="btn-ghost" href="Research%20Resume.pdf" download="Eliana-Anderson-Resume.pdf">RESUME ↓</a>
+                    </div>
+                </div>
+
+                <figure class="player-card">
+                    <div class="pc-photo">
+                        <img src="basketball.jpg" alt="Eliana dribbling the ball in a basketball game">
+                    </div>
+                    <figcaption>
+                        <b>30</b>
+                        <span>ELIANA ANDERSON<small>POLITICS · RESEARCH · DATA</small></span>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+
+        <!-- ======================================
+             TEAMS STRIP
+        ======================================= -->
+
+        <section class="teams" aria-label="Organizations">
+            <p>EVERY TEAM I’VE SUITED UP FOR</p>
+            <div class="team-logos">
+                <img src="indiana-senate.png" alt="Indiana Senate">
+                <img src="joco.png" alt="Johnson County Democratic Party">
+                <img src="quant.png" alt="Quantitative Histories Workshop">
+                <img src="casha.png" alt="Howard CASHA">
+                <img src="hilltop.png" alt="The Hilltop">
+                <img src="rotaract.png" alt="HU Rotaract">
+                <img src="hupss.png" alt="HU Political Science Society">
+                <img src="h3sp.png" alt="H3SP">
+            </div>
+        </section>
+
+
+        <!-- ======================================
+             BOX SCORE
+        ======================================= -->
+
+        <section class="boxscore" id="hook">
+            <div class="wrap">
+                <p class="ep reveal">TIP-OFF · BOX SCORE</p>
+
+                <ul class="box reveal">
+                    <li><b class="count" data-to="2">2</b><span>Majors</span><small>Political science &amp; economics</small></li>
+                    <li><b class="count" data-to="4">4</b><span>Experiences</span><small>Legislative, political &amp; research</small></li>
+                    <li><b class="count" data-to="5">5</b><span>Campus teams</span><small>Leadership &amp; involvement</small></li>
+                    <li><b class="count" data-to="19">19</b><span>Skills</span><small>Across four positions</small></li>
+                    <li class="hot"><b class="count" data-to="2030">2030</b><span>Class of</span><small>Howard University</small></li>
+                </ul>
+
+                <p class="hook-sent reveal">
+                    Two majors, one question: <em>how has historical
+                    institutionalism shaped the political economy of Black
+                    opportunity?</em>
+                </p>
+
+                <div class="eras reveal">
+                    <div class="era">
+                        <h3>Off the court</h3>
+                        <ul>
+                            <li><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20" /><circle cx="12" cy="12" r="10" /><path d="M5 5c3 3 3 11 0 14M19 5c-3 3-3 11 0 14" /></svg>Basketball</li>
+                            <li><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2H22l-6.2 4.5 2.4 7.3-6.2-4.5-6.2 4.5 2.4-7.3L2 9.2h7.6z" /></svg>Star Wars</li>
+                            <li><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="18" cy="16" r="3" /></svg>Concerts</li>
+                            <li><svg viewBox="0 0 24 24"><path d="M20.4 14.6 13.4 21.6a2 2 0 0 1-2.8 0L2 13V2h11l7.4 7.8a2 2 0 0 1 0 2.8z" /><circle cx="7" cy="7" r="1.5" /></svg>Thrifting</li>
+                        </ul>
+                    </div>
+                    <p class="era-mid">Same playbook, different court</p>
+                    <div class="era">
+                        <h3>On the clock</h3>
+                        <ul>
+                            <li><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="7" /><path d="M15 15l6 6" /></svg>Research</li>
+                            <li><svg viewBox="0 0 24 24"><path d="M3 21h18" /><rect x="5" y="11" width="3" height="8" /><rect x="10.5" y="6" width="3" height="13" /><rect x="16" y="3" width="3" height="16" /></svg>Data</li>
+                            <li><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="3" /><path d="M6 21v-3a6 6 0 0 1 12 0v3" /></svg>Public service</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================================
+             1ST QUARTER — ABOUT
+        ======================================= -->
+
+        <section class="section about" id="about">
+            <div class="wrap about-grid">
+                <figure class="about-photo reveal">
+                    <img src="headshot.jpg" alt="Headshot of Eliana Anderson">
+                </figure>
+
+                <div class="reveal">
+                    <p class="ep">1ST QUARTER · PLAYER PROFILE</p>
+                    <h2>ABOUT <span class="accent">ME</span></h2>
+                    <p class="lead">
+                        I’m an Honors Political Science and Economics student at
+                        Howard University’s College of Arts and Sciences,
+                        graduating in May 2030.
+                    </p>
+                    <p>
+                        I enjoy learning about the Black American experience,
+                        political economy, and data analysis and storytelling. I
+                        use Python, VS Code, and Claude tools to explore how
+                        historical institutionalism has impacted the political
+                        economy of Black opportunity.
+                    </p>
+
+                    <ul class="facts">
+                        <li><svg viewBox="0 0 24 24"><path d="M12 22s7-7.5 7-13a7 7 0 0 0-14 0c0 5.5 7 13 7 13z" /><circle cx="12" cy="9" r="2.5" /></svg><div><b>Currently in</b>Washington, D.C.</div></li>
+                        <li><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z" /><path d="M6 11v5c3 2 9 2 12 0v-5" /></svg><div><b>H3SP Scholar</b>Cohort 4</div></li>
+                        <li><svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7L12 17.6 5.8 21.1l1.4-7L2 9.3l7-.8z" /></svg><div><b>Honors student</b>College of Arts &amp; Sciences</div></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <hr class="saber" aria-hidden="true">
+
+
+        <!-- ======================================
+             2ND QUARTER — EXPERIENCE (scroll-driven game film)
+        ======================================= -->
+
+        <section class="engine" id="experience">
+
+            <div class="graphic" aria-hidden="true">
+                <div class="court-stage" id="stage">
+                    <canvas class="crowd" id="crowd"></canvas>
+                    <div class="stars"></div>
+
+                    <div class="led-board">
+                        <div class="led-track">
+                            <span>HOWARD UNIVERSITY</span><span>GAME FILM</span><span>CLASS OF 2030</span><span>#30</span>
+                            <span>HOWARD UNIVERSITY</span><span>GAME FILM</span><span>CLASS OF 2030</span><span>#30</span>
+                        </div>
+                    </div>
+
+                    <div class="floor">
+                        <div class="court-plane">
+                            <div class="three-pt"></div>
+                            <div class="paint"></div>
+                            <div class="ft-circle"></div>
+                        </div>
+                    </div>
+
+                    <div class="hoop">
+                        <div class="backboard"><span>HU</span><div class="backboard-square"></div></div>
+                        <div class="rim" id="rim"></div>
+                        <svg class="net" id="net" viewBox="0 0 100 60" preserveAspectRatio="none">
+                            <path d="M2 2 L18 58 M22 2 L30 58 M42 2 L44 58 M58 2 L56 58 M78 2 L70 58 M98 2 L82 58
+                                     M4 12 L96 12 M10 26 L90 26 M14 40 L86 40 M18 56 L82 56
+                                     M2 2 L30 30 L18 58 M22 2 L44 30 L30 58 M42 2 L58 30 L44 58 M58 2 L78 30 L56 58 M78 2 L96 30 L70 58
+                                     M98 2 L70 30 L82 58 M78 2 L56 30 L70 58 M58 2 L42 30 L56 58 M42 2 L22 30 L44 58 M22 2 L4 30 L30 58" />
+                        </svg>
+                    </div>
+
+                    <!-- Defender #12 -->
+                    <div class="defender" id="defender">
+                        <svg viewBox="0 0 220 420">
+                            <g class="d-body">
+                                <path class="skin" d="M92 262 L64 322 L72 372" />
+                                <path class="skin" d="M128 262 L156 322 L148 372" />
+                                <path class="sock" d="M72 352 L72 372" />
+                                <path class="sock" d="M148 352 L148 372" />
+                                <ellipse class="shoe" cx="68" cy="382" rx="22" ry="10" />
+                                <ellipse class="shoe" cx="152" cy="382" rx="22" ry="10" />
+                                <path class="d-kit" d="M66 200 L154 200 L166 278 L118 284 L110 262 L102 284 L54 278 Z" />
+                                <path class="d-trim" d="M60 210 L56 276 M160 210 L164 276" />
+                                <g class="d-arm d-arm-l">
+                                    <path class="skin" d="M74 110 L34 150 L14 112" />
+                                    <circle class="skin-fill" cx="12" cy="104" r="11" />
+                                </g>
+                                <g class="d-arm d-arm-r">
+                                    <path class="skin" d="M146 110 L186 150 L206 112" />
+                                    <circle class="skin-fill" cx="208" cy="104" r="11" />
+                                </g>
+                                <g class="d-arm d-arm-dribble">
+                                    <path class="skin" d="M146 110 L172 168 L176 214" />
+                                    <circle class="skin-fill" cx="177" cy="222" r="11" />
+                                </g>
+                                <g class="def-ball" id="defBall">
+                                    <circle cx="177" cy="248" r="18" class="ball-fill" />
+                                    <path class="ball-seam" d="M159 248 L195 248 M177 230 L177 266 M164 235 Q177 248 164 261 M190 235 Q177 248 190 261" />
+                                </g>
+                                <rect class="skin-fill" x="100" y="78" width="20" height="24" />
+                                <path class="d-kit" d="M70 100 Q110 88 150 100 L156 150 L152 208 L68 208 L64 150 Z" />
+                                <path class="d-trim" d="M92 92 Q110 108 128 92" />
+                                <text class="d-num" x="110" y="176">12</text>
+                                <circle class="skin-fill" cx="110" cy="58" r="25" />
+                                <path class="hair" d="M85 54 Q86 28 110 28 Q134 28 135 54 Q128 40 110 40 Q92 40 85 54 Z" />
+                                <circle class="eye" cx="101" cy="60" r="2.6" />
+                                <circle class="eye" cx="119" cy="60" r="2.6" />
+                            </g>
+                        </svg>
+                    </div>
+
+                    <!-- Eliana #30 -->
+                    <div class="player" id="player">
+                        <svg viewBox="0 0 200 420">
+                            <g class="p-body">
+                                <path class="skin" d="M84 266 L74 346" />
+                                <path class="skin" d="M116 266 L130 340" />
+                                <path class="sock" d="M74 338 L72 362" />
+                                <path class="sock" d="M130 332 L134 356" />
+                                <path class="shoe-p" d="M52 372 Q54 358 72 358 Q86 360 88 374 Z" />
+                                <path class="shoe-p" d="M118 366 Q120 352 136 352 Q150 354 152 368 Z" />
+                                <path class="p-kit" d="M62 200 L138 200 L148 276 L104 282 L100 262 L96 282 L52 276 Z" />
+                                <path class="p-trim" d="M58 206 L54 274 M142 206 L146 274" />
+                                <g class="p-arm p-arm-l">
+                                    <path class="skin" d="M68 108 L48 164 L42 212" />
+                                    <circle class="skin-fill" cx="41" cy="220" r="10" />
+                                </g>
+                                <g class="p-arm p-arm-r">
+                                    <path class="skin" d="M132 108 L152 164 L158 212" />
+                                    <circle class="skin-fill" cx="159" cy="220" r="10" />
+                                </g>
+                                <rect class="skin-fill" x="91" y="76" width="18" height="24" />
+                                <path class="p-kit" d="M64 100 Q100 88 136 100 L142 150 L138 208 L62 208 L58 150 Z" />
+                                <path class="p-trim" d="M66 102 Q74 124 62 146 M134 102 Q126 124 138 146" />
+                                <text class="p-name" x="100" y="128">ANDERSON</text>
+                                <text class="p-num" x="100" y="186">30</text>
+                                <circle class="skin-fill" cx="100" cy="64" r="22" />
+                                <circle class="hair" cx="100" cy="56" r="25" />
+                                <rect class="hair-tie" x="90" y="30" width="20" height="6" rx="3" />
+                                <circle class="hair" cx="100" cy="20" r="17" />
+                            </g>
+                            <g class="dribble-ball" id="dribbleBall">
+                                <circle cx="41" cy="246" r="18" class="ball-fill" />
+                                <path class="ball-seam" d="M23 246 L59 246 M41 228 L41 264 M28 233 Q41 246 28 259 M54 233 Q41 246 54 259" />
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="plus-two" id="plusTwo">+2</div>
+
+                    <div class="counter">
+                        <div><span class="big" id="stagePoints">0</span><span class="den"> PTS</span></div>
+                        <p class="lab" id="stageCall">GAME FILM · SCROLL TO RUN THE PLAYS</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="steps">
+                <div class="step" data-play="">
+                    <div class="card">
+                        <p class="ep">2ND QUARTER · GAME FILM</p>
+                        <h2>EXPERIENCE</h2>
+                        <p>Four stops, four plays. Keep scrolling and #30 runs a new play for each one.</p>
+                    </div>
+                </div>
+
+                <div class="step" data-play="crossover">
+                    <div class="card">
+                        <p class="ep">PLAY 01 · 2025 · LEGISLATIVE</p>
+                        <div class="card-head">
+                            <span class="logo-tile"><img src="indiana-senate.png" alt="Indiana Senate seal"></span>
+                            <h2>INDIANA STATE SENATE</h2>
+                        </div>
+                        <p>Observed policy, advocacy, and constituent meetings across housing, education, workforce development, and anti-trafficking.</p>
+                    </div>
+                </div>
+
+                <div class="step" data-play="steal">
+                    <div class="card">
+                        <p class="ep">PLAY 02 · 2025 · POLITICAL</p>
+                        <div class="card-head">
+                            <span class="logo-tile"><img src="joco.png" alt="Johnson County Democratic Party logo"></span>
+                            <h2>JOHNSON COUNTY DEMOCRATIC PARTY</h2>
+                        </div>
+                        <p>Youth outreach, voter engagement, political organizing, advocacy, and campaign strategy.</p>
+                    </div>
+                </div>
+
+                <div class="step" data-play="stepback">
+                    <div class="card">
+                        <p class="ep">PLAY 03 · 2026 · RESEARCH</p>
+                        <div class="card-head">
+                            <span class="logo-tile photo"><img src="independent.jpg" alt="The U.S. Capitol dome"></span>
+                            <h2>INDEPENDENT RESEARCH PROJECT</h2>
+                        </div>
+                        <p>Designed a quantitative longitudinal study examining congressional institutional strength and democratic backsliding.</p>
+                    </div>
+                </div>
+
+                <div class="step" data-play="behindback">
+                    <div class="card">
+                        <p class="ep">PLAY 04 · CURRENT · RESEARCH</p>
+                        <div class="card-head">
+                            <span class="logo-tile"><img src="quant.png" alt="Quantitative Histories Workshop logo"></span>
+                            <h2>QUANTITATIVE HISTORIES WORKSHOP</h2>
+                        </div>
+                        <p>Connecting historical inquiry with quantitative methods and computational analysis.</p>
+                    </div>
+                </div>
+            </div>
+
+            <svg class="shot-ball" id="shotBall" viewBox="0 0 30 30" aria-hidden="true">
+                <circle cx="15" cy="15" r="14" class="ball-fill" />
+                <path class="ball-seam" d="M1 15 L29 15 M15 1 L15 29 M5 5 Q15 15 5 25 M25 5 Q15 15 25 25" />
+            </svg>
+        </section>
+
+        <hr class="saber blue" aria-hidden="true">
+
+
+        <!-- ======================================
+             HALFTIME — PROJECTS
+        ======================================= -->
+
+        <section class="section project dark" id="project">
+            <div class="wrap project-grid">
+                <div class="reveal">
+                    <p class="ep">HALFTIME · PROJECT 01 · RESEARCH</p>
+                    <h2 class="project-title">GUARDRAILS <span class="accent">OF</span><br>DEMOCRACY</h2>
+                    <p class="lead">
+                        Examining Congressional Institutional Strength and
+                        Democratic Backsliding in the United States
+                    </p>
+                    <p>
+                        A quantitative, longitudinal, correlational study
+                        constructing a Congressional Institutional Strength
+                        Index and examining its relationship with democratic
+                        backsliding.
+                    </p>
+                    <p class="meta">INDEPENDENT RESEARCH · 2026</p>
+                </div>
+
+                <figure class="project-photo reveal">
+                    <img src="congress.jpg" alt="The United States Capitol building">
+                    <span class="tint"></span>
+                </figure>
+            </div>
+
+            <ul class="wrap stat-row reveal">
+                <li><small>METHOD</small><b>LONGITUDINAL</b></li>
+                <li><small>MODEL</small><b>OLS</b></li>
+                <li><small>INDEX</small><b>CISI</b></li>
+                <li><small>SOFTWARE</small><b>PYTHON</b><span>Jupyter Notebooks</span></li>
+            </ul>
+
+            <!-- Project 02: the Jay-Z data story -->
+            <div class="wrap project-grid project-two">
+                <a class="project-photo story-thumb reveal" href="jayz-story.html" target="_blank" rel="noopener">
+                    <img src="jayz-story.jpg" alt="Title screen of the data story The Force of the 1970s">
+                </a>
+
+                <div class="reveal">
+                    <p class="ep">PROJECT 02 · DATA STORY</p>
+                    <h2 class="project-title">THE FORCE OF<br><span class="accent">THE 1970S</span></h2>
+                    <p class="lead">How one decade built Jay-Z’s sound</p>
+                    <p>
+                        A scrollytelling data story that follows the 245
+                        samples across Jay-Z’s 13 solo albums back to the
+                        decade that shaped his sound the most: 77 of them,
+                        31 percent, come from 1970s records.
+                    </p>
+                    <p class="meta">HONORS SEMINAR · BLACK DIGITAL HUMANITIES: DATA VISUALIZATION AND STORYTELLING</p>
+                    <a class="btn-red" href="jayz-story.html" target="_blank" rel="noopener">VIEW THE STORY ↗</a>
+                </div>
+            </div>
+
+            <ul class="wrap stat-row reveal">
+                <li><small>SAMPLES</small><b>245</b><span>across 13 solo albums</span></li>
+                <li><small>FROM THE 1970S</small><b>77</b><span>31 percent</span></li>
+                <li><small>ARTISTS</small><b>74</b><span>in the 1970s slice</span></li>
+                <li><small>EARLIEST SAMPLE</small><b>1954</b><span>six decades of records</span></li>
+            </ul>
+        </section>
+
+
+        <!-- ======================================
+             3RD QUARTER — SKILLS (interactive scouting report)
+        ======================================= -->
+
+        <section class="section skills" id="skills">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <p class="ep">3RD QUARTER · SCOUTING REPORT</p>
+                    <h2>PLAYER <span class="accent">ATTRIBUTES</span></h2>
+                    <p>Pick a position to see where each skill plays.</p>
+                </div>
+
+                <div class="skills-body reveal">
+                    <div>
+                        <div class="chips" role="group" aria-label="Filter skills">
+                            <button class="chip" data-cat="all" aria-pressed="true">All</button>
+                            <button class="chip" data-cat="research" aria-pressed="false">Research</button>
+                            <button class="chip" data-cat="data" aria-pressed="false">Data</button>
+                            <button class="chip" data-cat="tech" aria-pressed="false">Tech</button>
+                            <button class="chip" data-cat="service" aria-pressed="false">Public service</button>
+                        </div>
+
+                        <ul class="skill-tiles" id="skillTiles">
+                            <li data-cat="research">Mixed-methods design</li>
+                            <li data-cat="research">Literature synthesis</li>
+                            <li data-cat="research">Quantitative analysis</li>
+                            <li data-cat="research">Composite index construction</li>
+                            <li data-cat="data">R</li>
+                            <li data-cat="data">Python</li>
+                            <li data-cat="data">Excel</li>
+                            <li data-cat="data">Tableau</li>
+                            <li data-cat="data">Flourish</li>
+                            <li data-cat="data">Data cleaning &amp; standardization</li>
+                            <li data-cat="tech">VS Code</li>
+                            <li data-cat="tech">Jupyter Notebooks</li>
+                            <li data-cat="tech">IBM Data Science Toolkit</li>
+                            <li data-cat="tech">Applied AI</li>
+                            <li data-cat="tech">Claude tools</li>
+                            <li data-cat="service">Political organizing</li>
+                            <li data-cat="service">Advocacy</li>
+                            <li data-cat="service">Public speaking</li>
+                            <li data-cat="service">Constituent communication</li>
+                        </ul>
+                    </div>
+
+                    <aside class="scout-card" aria-live="polite">
+                        <p class="ep">SCOUTING NOTE</p>
+                        <p class="scout-num"><b id="scoutCount">19</b> / 19</p>
+                        <h3 id="scoutTitle">FULL ROSTER</h3>
+                        <p id="scoutText">Four positions: research, data, tech and public service.</p>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <hr class="saber" aria-hidden="true">
+
+
+        <!-- ======================================
+             4TH QUARTER — EDUCATION
+        ======================================= -->
+
+        <section class="section education" id="education">
+            <div class="wrap edu-grid">
+                <div class="reveal">
+                    <p class="ep">4TH QUARTER · PLAYER DEVELOPMENT</p>
+                    <h2>EDUCATION</h2>
+
+                    <div class="edu-card">
+                        <div class="edu-year"><small>CLASS OF</small><b>2030</b></div>
+                        <div>
+                            <h3>HOWARD UNIVERSITY</h3>
+                            <p>B.A. Political Science &amp; Economics</p>
+                            <p class="muted">Double major in progress · Honors</p>
+                        </div>
+                    </div>
+
+                    <div class="tags">
+                        <span>COAS HONORS</span><span>H3SP COHORT 4</span><span>DATA SCIENCE</span><span>RESEARCH</span>
+                    </div>
+
+                    <p class="focus"><b>CURRENT FOCUS</b> Political institutions · Political economy · Black American experience · Data analysis · Research methodology</p>
+                </div>
+
+                <div class="edu-seal reveal">
+                    <img src="howard-seal.png" alt="Howard University seal">
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ======================================
+             OVERTIME — LEADERSHIP
+        ======================================= -->
+
+        <section class="section leadership dark" id="leadership">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <p class="ep">OVERTIME · THE ROSTER</p>
+                    <h2>LEADERSHIP <span class="accent">&amp; CAMPUS</span></h2>
+                </div>
+
+                <ol class="roster">
+                    <li class="reveal"><b>01</b><span class="org-logo"><img src="casha.png" alt="Howard CASHA logo"></span><strong>CASHA</strong><span class="role">Freshman Representative</span></li>
+                    <li class="reveal"><b>02</b><span class="org-logo"><img src="hilltop.png" alt="The Hilltop logo"></span><strong>THE HILLTOP</strong><span class="role">Investigative Reporter</span></li>
+                    <li class="reveal"><b>03</b><span class="org-logo" style="background: #d70e5e;"><img src="rotaract.png" alt="HU Rotaract logo"></span><strong>HU ROTARACT</strong><span class="role">Campus Involvement</span></li>
+                    <li class="reveal"><b>04</b><span class="org-logo" style="background: #9a0130;"><img src="hupss.png" alt="HU Political Science Society logo"></span><strong>HU POLITICAL SCIENCE SOCIETY</strong><span class="role">Campus Involvement</span></li>
+                    <li class="reveal"><b>05</b><span class="org-logo"><img src="h3sp.png" alt="Humanities &amp; Social Sciences Scholars Program logo"></span><strong>H3SP</strong><span class="role">Cohort 4 Scholar</span></li>
+                </ol>
+            </div>
+        </section>
+
+        <hr class="saber blue" aria-hidden="true">
+
+
+        <!-- ======================================
+             FINAL BUZZER — CONTACT / OUTRO
+        ======================================= -->
+
+        <section class="outro" id="contact">
+            <div class="wrap reveal">
+                <p class="crawl">The journey continues…</p>
+                <p class="ep light">FINAL BUZZER</p>
+                <h2>LET’S <span class="accent">CONNECT.</span></h2>
+                <p class="outro-lead">
+                    Interested in research, journalism, public service,
+                    collaboration, or simply starting a conversation?
+                </p>
+
+                <div class="contact-grid">
+                    <a class="contact-email" href="mailto:eliana.anderson110@gmail.com">
+                        <svg class="brand gmail" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" /></svg>
+                        <b>eliana.anderson110<wbr>@gmail.com</b><span>↗</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/eliana-anderson-755897336/" target="_blank" rel="noopener">
+                        <svg class="brand linkedin" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
+                        <b>LINKEDIN</b><span>↗</span>
+                    </a>
+                    <a href="https://github.com/elianaanderson11" target="_blank" rel="noopener">
+                        <svg class="brand github" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg>
+                        <b>GITHUB</b><span>↗</span>
+                    </a>
+                    <a href="Research%20Resume.pdf" download="Eliana-Anderson-Resume.pdf">
+                        <svg class="brand resume" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM13 3.5 18.5 9H13zM8 13h8v1.5H8zm0 3.5h8V18H8z" /></svg>
+                        <b>RESUME</b><span>↓</span>
+                    </a>
+                </div>
+
+                <div class="final">
+                    <p>FINAL SCORE · <b id="finalPoints">0</b> PTS</p>
+                    <a class="btn-red" href="#experience" id="replay">RUN IT BACK ↺</a>
+                </div>
+            </div>
+
+            <footer class="footer">
+                <span>© 2026 Eliana Anderson</span>
+                <span>Howard University · Washington, D.C.</span>
+            </footer>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
