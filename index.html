@@ -111,6 +111,8 @@ h1 small{display:block;font-size:.3em;letter-spacing:.08em;line-height:1.2;margi
 .counter .big{font-family:var(--display);font-weight:800;font-size:56px;line-height:.9;color:var(--red);font-variant-numeric:tabular-nums}
 .counter .den{font-family:var(--display);font-weight:700;font-size:26px;color:var(--ink)}
 .counter .lab{font:700 12px/1.35 var(--text);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;max-width:44em}
+.counter .find{font-family:var(--display);font-weight:800;font-size:30px;line-height:1.08;color:var(--red);max-width:20em}
+.counter .find:empty{display:none}
 #chart{position:absolute;inset:0;width:100%;height:100%}
 #chart text{font-family:var(--text)}
 .scene{opacity:0;transition:opacity .6s ease;pointer-events:none}
@@ -194,6 +196,7 @@ footer a{color:var(--blue)}
   .counter{top:18px;left:16px}
   .counter .big{font-size:40px}
   .counter .den{font-size:20px}
+  .counter .find{font-size:20px}
   .coda{padding:72px 16px}
   .verdict{grid-template-columns:1fr}
   .comps{grid-template-columns:1fr 1fr}
@@ -241,7 +244,7 @@ footer a{color:var(--blue)}
       <div class="hook-num" id="hookNum" aria-label="238">0</div>
       <div class="hook-label">executive orders · <b>2025</b></div>
     </div>
-    <p class="hook-sent">In 2025 the president signed <em>238 executive orders</em>, more than in 2017 through 2020 combined and the most in any year since 1942. That same year, the U.S. liberal democracy score fell to <em>0.571</em>, its lowest point in 35 years.</p>
+    <p class="hook-sent">In 2025, <em>238 executive orders</em> were signed, 225 of them by President Trump. That is more than in 2017 through 2020 combined and the most in any year since 1942. That same year, the U.S. liberal democracy score fell to <em>0.571</em>, its lowest point in 35 years.</p>
   </div>
   <div class="eras" aria-label="Two suspects">
     <div class="era">
@@ -266,7 +269,7 @@ footer a{color:var(--blue)}
 <section class="engine" id="engine" aria-label="Eight steps through the evidence">
   <div class="graphic" aria-hidden="true">
     <div class="stage" id="stage">
-      <div class="counter"><span class="big" id="cBig">0.571</span> <span class="den" id="cDen"></span><div class="lab" id="cLab"></div></div>
+      <div class="counter"><div class="find" id="cFind"></div><span class="big" id="cBig">0.571</span> <span class="den" id="cDen"></span><div class="lab" id="cLab"></div></div>
       <svg id="chart"></svg>
     </div>
   </div>
@@ -283,13 +286,13 @@ footer a{color:var(--blue)}
     <p class="intro">The Congressional Institutional Strength Index (CISI) will measure how strongly Congress constrains the president across five components. This preliminary test used two of them.</p>
 
     <div class="verdict">
-      <b>Verdict: <span>the executive</span></b>
+      <b>The early evidence points to <span>the executive</span></b>
       <p>These preliminary results favor executive aggrandizement over legislative gridlock as the more salient mechanism of democratic erosion in the contemporary U.S.</p>
     </div>
 
     <div class="comps">
-      <div class="comp done"><p class="k">Tested · p = 0.002</p><h3>Executive order frequency</h3><p>A reliable negative predictor of liberal democracy.</p></div>
-      <div class="comp done"><p class="k">Tested · p = 0.809</p><h3>Legislative productivity</h3><p>No independent effect once executive orders are in the model.</p></div>
+      <div class="comp done"><p class="k">Tested · p = 0.003</p><h3>Executive order frequency</h3><p>A reliable negative predictor of liberal democracy.</p></div>
+      <div class="comp done"><p class="k">Tested · p = 0.901</p><h3>Legislative productivity</h3><p>No independent effect once executive orders are in the model.</p></div>
       <div class="comp"><p class="k">Next</p><h3>Oversight hearings</h3><p>How often Congress calls the executive branch to account.</p></div>
       <div class="comp"><p class="k">Next</p><h3>Budgetary control</h3><p>Congress’s hold on the power of the purse.</p></div>
       <div class="comp"><p class="k">Next</p><h3>Confirmation activity</h3><p>How the Senate uses its advice-and-consent power.</p></div>
@@ -307,7 +310,7 @@ footer a{color:var(--blue)}
       <div class="tiles">
         <div class="tile hot"><div class="v" id="tLib">–</div><div class="l">Liberal democracy</div><div class="s">V-Dem index, 0 to 1</div></div>
         <div class="tile"><div class="v" id="tEo">–</div><div class="l">Executive orders</div><div class="s">signed that year</div></div>
-        <div class="tile"><div class="v" id="tBill">–</div><div class="l">Bills enacted</div><div class="s" id="tBillS">that Congress, approx.</div></div>
+        <div class="tile"><div class="v" id="tBill">–</div><div class="l">Laws enacted</div><div class="s" id="tBillS">that Congress</div></div>
         <div class="tile"><div class="v" id="tTrust">–</div><div class="l">Public trust</div><div class="s">trust Washington, avg. of polls</div></div>
       </div>
       <svg id="spark" aria-hidden="true"></svg>
@@ -319,9 +322,9 @@ footer a{color:var(--blue)}
 <!-- ===================== FOOTER ===================== -->
 <footer>
   <div class="wrap">
-    <p><b>Data.</b> Liberal democracy: V-Dem Liberal Democracy Index (<i>v2x_libdem</i>), United States, last observation per year, 1991–2025. Executive orders: Federal Register executive order records, counted by signing year. Bills enacted: approximate enacted bills per Congress (rounded enacted share × total bills and resolutions), assigned to both years of each Congress, 102nd–118th. Public trust: share who trust the federal government to do what is right “just about always” or “most of the time,” compiled by Pew Research Center from Pew, NES, Gallup, CBS/NYT, ABC/Washington Post and CNN polls, 1958–2025.</p>
-    <p><b>Method.</b> OLS with Newey-West (HAC) standard errors, 3 lags, 1991–2024 (n = 34). Executive orders and bills are entered as z-scores. Two components entered separately: R² = 0.243, F-test p = 0.004; executive orders β = −0.082 (p = 0.002); bills β = 0.002 (p = 0.809). Equal-weight composite: R² = 0.014, not significant. Public trust alone (n = 33): R² = 0.002, p = 0.847. 2025 is shown for context only; it is not in the two-component model because the 119th Congress is not finished.</p>
-    <p><b>Limitations.</b> The sample is small (34 years), residual autocorrelation remains (Durbin-Watson ≈ 0.54), and the productivity measure is estimated from rounded percentages rather than exact counts. Correlation across years is not proof that executive orders cause democratic decline.</p>
+    <p><b>Data.</b> Liberal democracy: V-Dem Liberal Democracy Index (<i>v2x_libdem</i>), United States, last observation per year, 1991–2025. Executive orders: Federal Register executive order records, counted by signing year. Laws enacted: public laws per Congress from the National Archives (Office of the Federal Register), assigned to both years of each Congress, 102nd–118th. Of the 238 executive orders signed in 2025, 13 were signed by President Biden and 225 by President Trump. Public trust: share who trust the federal government to do what is right “just about always” or “most of the time,” compiled by Pew Research Center from Pew, NES, Gallup, CBS/NYT, ABC/Washington Post and CNN polls, 1958–2025. The model uses the average of each year’s poll trend values, so 2025 counts as 18% even though the latest poll (September 2025) was 17%.</p>
+    <p><b>Method.</b> OLS with Newey-West (HAC) standard errors, 3 lags, 1991–2024 (n = 34). Executive orders and bills are entered as z-scores. Two components entered separately: R² = 0.242, F-test p = 0.007; executive orders β = −0.080 (p = 0.003); laws β = −0.001 (p = 0.901). Equal-weight composite: R² = 0.032, not significant (p = 0.37). Public trust alone (n = 33): R² = 0.002, p = 0.847. 2025 is shown for context only; it is not in the two-component model because the 119th Congress is not finished.</p>
+    <p><b>Limitations.</b> The sample is small (34 years), residual autocorrelation remains (Durbin-Watson ≈ 0.52), and law counts are recorded per Congress, so both years of a Congress share one value. Correlation across years is not proof that executive orders cause democratic decline.</p>
     <p><b>Built by</b> Eliana Anderson. Preliminary findings from the ABRCMS abstract <i>Executive Aggrandizement or Legislative Gridlock? A Preliminary Test of Congressional Institutional Strength and Democratic Backsliding, 1991–2025</i>. <a href="https://elianaanderson11.github.io/">Back to the portfolio</a>.</p>
   </div>
 </footer>
@@ -335,8 +338,8 @@ var NS = "http://www.w3.org/2000/svg";
 /* ---------- DATA (from 00_LinearRegression.ipynb inputs) ---------- */
 var LIB = {1991:.805,1992:.807,1993:.805,1994:.806,1995:.808,1996:.811,1997:.811,1998:.808,1999:.808,2000:.770,2001:.767,2002:.795,2003:.798,2004:.792,2005:.794,2006:.838,2007:.840,2008:.843,2009:.848,2010:.846,2011:.845,2012:.847,2013:.852,2014:.850,2015:.848,2016:.796,2017:.749,2018:.742,2019:.740,2020:.715,2021:.756,2022:.802,2023:.789,2024:.754,2025:.571};
 var EO = {1991:46,1992:40,1993:63,1994:54,1995:40,1996:49,1997:38,1998:38,1999:35,2000:41,2001:66,2002:31,2003:41,2004:45,2005:26,2006:27,2007:32,2008:30,2009:45,2010:35,2011:34,2012:39,2013:20,2014:31,2015:29,2016:42,2017:62,2018:37,2019:45,2020:69,2021:91,2022:29,2023:24,2024:19,2025:238};
-/* [congress, start year, enacted (approx), introduced] */
-var CONG = [[102,1991,601,12016],[103,1993,491,9822],[104,1995,320,7991],[105,1997,366,9141],[106,1999,650,10840],[107,2001,432,10789],[108,2003,533,10669],[109,2005,523,13072],[110,2007,421,14042],[111,2009,410,13675],[112,2011,246,12299],[113,2013,319,10637],[114,2015,362,12063],[115,2017,407,13556],[116,2019,332,16601],[117,2021,356,17817],[118,2023,193,19315]];
+/* [congress, start year, public laws enacted (National Archives), bills introduced] */
+var CONG = [[102,1991,590,12016],[103,1993,465,9822],[104,1995,333,7991],[105,1997,394,9141],[106,1999,580,10840],[107,2001,377,10789],[108,2003,498,10669],[109,2005,482,13072],[110,2007,460,14042],[111,2009,383,13675],[112,2011,283,12299],[113,2013,296,10637],[114,2015,329,12063],[115,2017,442,13556],[116,2019,344,16601],[117,2021,362,17817],[118,2023,274,19315]];
 var TRUST = {1991:40.75,1992:26.33,1993:25,1994:20.67,1995:22.2,1996:28.75,1997:28.75,1998:31.11,1999:33.75,2000:38.2,2001:49,2002:43.5,2003:39.5,2004:39.33,2005:32,2006:31,2007:26,2008:24.33,2009:22,2010:22.2,2011:18.8,2012:19,2013:20.8,2014:18.5,2015:18,2017:18.5,2019:17,2020:22.5,2021:21,2022:20,2023:19,2024:18,2025:18};
 /* [decimal year, individual poll %, smoothed trend %] */
 var POLLS = [[1958.92,73,73],[1964.79,77,77],[1966.92,65,65],[1968.79,62,62],[1970.92,54,54],[1972.79,53,53],[1974.92,36,36],[1976.11,36,35],[1976.17,33,34],[1976.46,33,35],[1976.68,40,35],[1976.79,33,36],[1977.31,35,34],[1977.81,33,32],[1978.92,29,31],[1979.84,30,28],[1980.2,26,27],[1980.79,25,30],[1980.85,39,32],[1982.92,33,39],[1984.79,44,41],[1984.87,46,44],[1985.14,43,45],[1985.16,46,42],[1985.22,37,40],[1985.57,38,42],[1985.85,49,43],[1986.05,42,44],[1986.69,40,44],[1986.91,49,43],[1986.92,39,44],[1987.05,44,42],[1987.06,43,43],[1987.16,42,44],[1987.42,47,43],[1987.8,41,43],[1988.06,39,40],[1988.79,41,41],[1988.86,44,43],[1989.04,44,41],[1989.49,35,39],[1990.04,38,38],[1990.68,42,35],[1990.82,25,32],[1990.92,28,33],[1991.07,46,40],[1991.16,45,46],[1991.18,47,42],[1991.8,35,35],[1992.44,23,29],[1992.79,29,25],[1992.81,22,25],[1993.04,24,25],[1993.05,28,25],[1993.23,22,25],[1994.05,24,22],[1994.08,19,20],[1994.43,17,19],[1994.81,22,20],[1994.83,22,22],[1994.92,22,21],[1995.14,18,21],[1995.21,22,20],[1995.59,20,21],[1995.6,22,22],[1995.88,25,27],[1996.35,34,29],[1996.36,27,31],[1996.79,33,28],[1996.84,25,27],[1997.04,23,27],[1997.42,32,26],[1997.65,22,31],[1997.83,39,31],[1998.05,31,32],[1998.07,26,32],[1998.09,39,33],[1998.14,34,35],[1998.61,34,31],[1998.82,26,28],[1998.83,24,26],[1998.87,26,30],[1998.92,40,33],[1999.01,33,37],[1999.03,37,34],[1999.1,33,34],[1999.12,32,32],[1999.14,31,31],[1999.37,31,33],[1999.7,38,33],[1999.75,30,36],[2000.12,40,34],[2000.25,31,38],[2000.52,42,39],[2000.79,44,42],[2000.83,40,38],[2001.05,31,44],[2001.76,60,49],[2001.81,55,54],[2001.93,48,49],[2002.07,46,46],[2002.46,44,43],[2002.53,38,40],[2002.67,38,40],[2002.67,46,46],[2002.79,55,46],[2003.57,36,43],[2003.82,37,36],[2004.22,36,38],[2004.54,40,41],[2004.79,46,39],[2005.46,30,35],[2005.69,29,30],[2005.69,31,31],[2005.92,32,32],[2006.02,32,32],[2006.05,32,33],[2006.1,34,31],[2006.7,28,30],[2006.77,29,29],[2007.02,31,28],[2007.52,24,24],[2008.78,17,24],[2008.79,31,24],[2008.97,26,25],[2009.45,20,23],[2009.66,24,22],[2009.97,20,21],[2010.03,19,20],[2010.1,19,21],[2010.12,26,22],[2010.22,22,24],[2010.26,25,22],[2010.26,20,23],[2010.67,25,23],[2010.68,24,23],[2010.75,18,21],[2010.8,22,23],[2011.16,29,23],[2011.64,19,21],[2011.73,15,18],[2011.76,20,15],[2011.8,10,17],[2012.83,22,19],[2013.04,26,23],[2013.1,20,22],[2013.41,20,20],[2013.78,19,19],[2013.87,17,20],[2014.16,24,18],[2014.55,14,19],[2015.76,19,18],[2017.28,20,19],[2017.92,18,18],[2019.23,17,17],[2020.28,27,21],[2020.59,20,24],[2021.28,24,21],[2022.33,20,20],[2023.44,16,19],[2024.38,22,18],[2025.11,17,19],[2025.74,17,17]];
@@ -351,7 +354,7 @@ var MODEL = YEARS.filter(function(y){ return y<=2024; });
 var bVals = MODEL.map(function(y){ return billsFor(y)[2]; });
 var B_MU = bVals.reduce(function(a,b){return a+b;},0)/bVals.length;
 var B_SD = Math.sqrt(bVals.reduce(function(a,b){return a+(b-B_MU)*(b-B_MU);},0)/(bVals.length-1));
-var C0 = .759216, B_EO = -.081974, B_BILL = .001794, MEAN_EOZ = -.528006;
+var C0 = .760001, B_EO = -.080489, B_BILL = -.000835, MEAN_EOZ = -.528017;
 function fitEO(eo){ return C0 + B_EO*(eo-EO_MU)/EO_SD; }                       /* bills held at their mean */
 function fitBill(b){ return C0 + B_BILL*(b-B_MU)/B_SD + B_EO*MEAN_EOZ; }       /* EOs held at their mean */
 function fitTrust(t){ return .7910 + .0002*t; }
@@ -398,30 +401,30 @@ new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersect
 
 /* ---------- ENGINE: steps ---------- */
 var STEPS = [
-  {scene:"lib", ep:"Episode I · The phantom decline", title:"A democracy losing altitude",
+  {scene:"lib", ep:"Episode I · The phantom decline", title:"U.S. democracy has been slipping",
    text:"<p>V-Dem’s Liberal Democracy Index scores a country from 0 to 1 on free elections <i>and</i> on the limits placed on power: courts, legislatures, civil liberties.</p><p>The U.S. peaked at <span class='stat'>0.852</span> in 2013. By 2025 it had fallen to <span class='stat'>0.571</span>, the lowest score in the 35 years studied.</p>",
    big:"0.571", den:"/ 1.0", lab:"U.S. liberal democracy score, 2025"},
-  {scene:"trust", ep:"Episode II · The obvious suspect", title:"Americans stopped trusting Washington",
-   text:"<p>In 1964, <span class='stat'>77%</span> of Americans trusted the federal government to do what is right most of the time. In 2025, <span class='stat'>17%</span> did.</p><p>Across 163 polls, trust falls by about half a point every year (p &lt; 0.001).</p>",
-   big:"17%", den:"from 77%", lab:"trust the federal government, 2025 vs. 1964"},
-  {scene:"trustX", ep:"Episode II · The obvious suspect", title:"…but trust doesn’t track democracy",
+  {scene:"trust", ep:"Episode II · The obvious suspect", title:"Americans lost trust in Washington…",
+   text:"<p>In 1964, <span class='stat'>77%</span> of Americans trusted the federal government to do what is right most of the time. In the latest poll, September 2025, <span class='stat'>17%</span> did.</p><p>The model uses one number per year, the average of that year’s polls, so 2025 counts as <span class='stat'>18%</span>.</p><p>Across 163 polls, trust falls by about half a point every year (p &lt; 0.001).</p>",
+   big:"17%", den:"from 77%", lab:"trust the federal government, Sept. 2025 vs. 1964"},
+  {scene:"trustX", ep:"Episode II · The obvious suspect", title:"…but lost trust doesn’t explain the decline",
    text:"<p>Put each year’s trust next to that year’s democracy score and the pattern disappears. Trust explains <span class='stat'>0.2%</span> of the variation (R² = 0.002, p = 0.847).</p><p>Falling trust is real, but it isn’t the mechanism. The answer has to be institutional.</p>",
-   big:"0.002", den:"R²", lab:"share of democracy’s variation explained by public trust"},
-  {scene:"eo", ep:"Episode III · Revenge of the executive", title:"The president’s pen",
-   text:"<p>An executive order lets a president act without Congress. From 1991 to 2024, presidents signed between <span class='stat'>19</span> and <span class='stat'>91</span> a year.</p><p>In 2025 the count jumped to <span class='stat'>238</span>, the most in any year since 1942.</p>",
-   big:"238", den:"orders", lab:"executive orders signed in 2025"},
-  {scene:"bills", ep:"Episode IV · A new gridlock", title:"Congress’s pen runs dry",
-   text:"<p>The 102nd Congress (1991–92) enacted about <span class='stat'>601</span> bills, 5% of what it introduced. The 118th (2023–24) enacted about <span class='stat'>193</span>, roughly 1% of 19,315.</p><p>More bills in, fewer laws out: the textbook picture of gridlock.</p>",
-   big:"193", den:"/ 19,315", lab:"bills enacted by the 118th Congress (approx.)"},
-  {scene:"eoX", ep:"Episode V · The executive strikes back", title:"More orders, weaker democracy",
-   text:"<p>Both measures, standardized, go into one regression with Newey-West standard errors, 1991–2024 (n = 34).</p><p>Each standard-deviation rise in executive orders predicts a <span class='stat'>0.082</span> drop in the democracy score (p = 0.002).</p><p>The hollow ring is 2025, outside the model because the 119th Congress isn’t finished. It still lands near the model’s line.</p>",
-   big:"−0.082", den:"per SD", lab:"change in democracy score per SD of executive orders · p = 0.002"},
-  {scene:"billX", ep:"Episode V · The executive strikes back", title:"Gridlock, on its own, says nothing",
-   text:"<p>In the same model, legislative productivity shows no independent effect (<span class='stat'>p = 0.809</span>).</p><p>Once executive action is accounted for, Congress passing fewer laws doesn’t move the democracy score.</p>",
-   big:"0.809", den:"p-value", lab:"legislative productivity · not significant"},
-  {scene:"r2", ep:"Episode VI · Return of the index", title:"Averaging hides the signal",
-   text:"<p>Entered separately, the two components explain about a quarter of the variance (<span class='stat'>R² = 0.243</span>, p = 0.004).</p><p>Averaged into one equal-weight score, the relationship vanishes (<span class='stat'>R² = 0.014</span>). A strong signal plus a null one becomes noise, so executive indicators should carry more weight in the full index.</p>",
-   big:"0.243", den:"R²", lab:"two components, entered separately"}
+   find:"Years with lower trust did not have lower democracy scores", lab:"Evidence: trust explains 0.2% of the variation · R² = 0.002, p = 0.847"},
+  {scene:"eo", ep:"Episode III · Revenge of the executive", title:"Presidents can act without Congress",
+   text:"<p>An executive order lets a president act without Congress. From 1991 to 2024, presidents signed between <span class='stat'>19</span> and <span class='stat'>91</span> a year.</p><p>In 2025 the count jumped to <span class='stat'>238</span>, 225 of them signed by President Trump, the most in any year since 1942.</p>",
+   big:"238", den:"orders", lab:"executive orders signed in 2025 · 225 by President Trump"},
+  {scene:"bills", ep:"Episode IV · A new gridlock", title:"Congress is passing fewer laws",
+   text:"<p>The 102nd Congress (1991–92) enacted <span class='stat'>590</span> public laws, about 5% of the bills it introduced. The 118th (2023–24) enacted <span class='stat'>274</span>, about 1.4% of 19,315.</p><p>More bills in, fewer laws out: the textbook picture of gridlock.</p>",
+   big:"274", den:"laws", lab:"public laws enacted by the 118th Congress"},
+  {scene:"eoX", ep:"Episode V · The executive strikes back", title:"More executive orders, lower democracy scores",
+   text:"<p>Years with more executive orders had lower democracy scores, even after accounting for how many laws Congress passed.</p><p>The evidence: both measures, standardized, go into one regression with Newey-West standard errors, 1991–2024 (n = 34). Each standard-deviation rise in executive orders goes with a <span class='stat'>0.080</span> drop in the democracy score (p = 0.003).</p><p>The hollow ring is 2025, shown for context only. It was not used to build the model, so it can’t confirm it.</p>",
+   find:"Years with more executive orders had lower democracy scores", lab:"Evidence: −0.080 per standard deviation of executive orders · p = 0.003"},
+  {scene:"billX", ep:"Episode V · The executive strikes back", title:"Fewer laws didn’t mean lower democracy scores",
+   text:"<p>In the same model, legislative productivity shows no independent effect (<span class='stat'>p = 0.901</span>).</p><p>Once executive action is accounted for, Congress passing fewer laws doesn’t move the democracy score.</p>",
+   find:"The number of laws passed showed no clear link to democracy", lab:"Evidence: legislative productivity, p = 0.901 · not significant"},
+  {scene:"r2", ep:"Episode VI · Return of the index", title:"Combining the two measures hides the signal",
+   text:"<p>Entered separately, the two components explain about a quarter of the variance (<span class='stat'>R² = 0.242</span>, p = 0.007).</p><p>Averaged into one equal-weight score, the relationship vanishes (<span class='stat'>R² = 0.032</span>). A strong signal plus a null one becomes noise, so executive indicators should carry more weight in the full index.</p>",
+   find:"Averaging the two measures together hides the signal", lab:"Evidence: R² = 0.242 separately · R² = 0.032 as an equal-weight average"}
 ];
 
 var stepsEl = document.getElementById("steps");
@@ -433,13 +436,13 @@ STEPS.forEach(function(s,i){
 
 /* ---------- ENGINE: chart ---------- */
 var svg = document.getElementById("chart"), stage = document.getElementById("stage");
-var cBig = document.getElementById("cBig"), cDen = document.getElementById("cDen"), cLab = document.getElementById("cLab");
+var cFind = document.getElementById("cFind"), cBig = document.getElementById("cBig"), cDen = document.getElementById("cDen"), cLab = document.getElementById("cLab");
 var scenes = {}, lastStep = -1, W, H, M;
 
 function frame(){
   var r = stage.getBoundingClientRect(); W = r.width; H = r.height;
   var mobile = window.innerWidth <= 900;
-  M = {t: mobile ? 130 : 178, r: mobile ? 22 : 48, b: mobile ? Math.min(H*.44, 330) : 70, l: mobile ? 44 : 64};
+  M = {t: mobile ? 150 : 200, r: mobile ? 22 : 48, b: mobile ? Math.min(H*.44, 330) : 70, l: mobile ? 44 : 64};
   svg.setAttribute("viewBox","0 0 "+W+" "+H);
 }
 function axisY(g, sc, ticks, fmt, label){
@@ -499,7 +502,7 @@ function build(){
     el("circle",{cx:x(1964.79),cy:y(77),r:6,fill:"#0C2340"},g);
     el("text",{"class":"ann",x:x(1964.79)+10,y:y(77)-8},g,"1964 · 77%");
     el("circle",{cx:x(2025.74),cy:y(17),r:6,fill:"#C8102E"},g);
-    el("text",{"class":"ann hot",x:x(2025.74)-10,y:y(17)+24,"text-anchor":"end"},g,"2025 · 17%");
+    el("text",{"class":"ann hot",x:x(2025.74)-10,y:y(17)+24,"text-anchor":"end"},g,"Sept. 2025 · 17%");
   })();
 
   /* scatter helper */
@@ -510,16 +513,15 @@ function build(){
     axisX(g,x,xTicks,xFmt,xLab);
     var a = fitDom[0], b = fitDom[1];
     drawPath(g,[[x(a),y(fit(a))],[x(b),y(fit(b))]],{stroke:"#C8102E","stroke-width":3});
-    if (fitDom[2]) el("path",{d:pathOf([[x(b),y(fit(b))],[x(fitDom[2]),y(fit(fitDom[2]))]]),stroke:"#C8102E","stroke-width":2,"stroke-dasharray":"4 5",fill:"none","stroke-opacity":.6},g);
     xs.forEach(function(p,i){
       if (p.out){
         el("circle",{"class":"dot",cx:x(p.x),cy:y(p.y),r:8,fill:"none",stroke:"#C8102E","stroke-width":2.5,style:"transition-delay:"+(i*20+300)+"ms"},g);
-        el("text",{"class":"ann hot",x:x(p.x)-14,y:y(p.y)+4,"text-anchor":"end"},g,"2025 · not in model");
+        el("text",{"class":"ann hot",x:x(p.x)-14,y:y(p.y)+4,"text-anchor":"end"},g,"2025 · context only, not in model");
       } else {
         el("circle",{"class":"dot",cx:x(p.x),cy:y(p.y),r:5,fill:"#0C2340","fill-opacity":.8,stroke:"#fff","stroke-width":1,style:"transition-delay:"+(i*20)+"ms"},g);
       }
     });
-    if (stamp) el("text",{"class":"ann",x:W-M.r,y:M.t-18,"text-anchor":"end"},g,stamp);
+    if (stamp && !narrow) el("text",{"class":"ann",x:W-M.r,y:M.t-18,"text-anchor":"end"},g,stamp);
     return {g:g,x:x,y:y};
   }
 
@@ -555,7 +557,7 @@ function build(){
     var g = scene("bills");
     var n = CONG.length, x0 = M.l, x1 = W-M.r, bw = (x1-x0)/n;
     var y = lin(0,700,H-M.b,M.t);
-    axisY(g,y,[0,200,400,600],String,"Bills enacted per Congress (approx.)");
+    axisY(g,y,[0,200,400,600],String,"Public laws enacted per Congress");
     CONG.forEach(function(c,i){
       var hot = i===0 || i===n-1;
       el("rect",{"class":"bar",x:x0+i*bw+bw*.14,y:y(c[2]),width:bw*.72,height:(H-M.b)-y(c[2]),fill:i===n-1?"#C8102E":"#0C2340","fill-opacity":hot?1:.8,style:"transition-delay:"+(i*40)+"ms"},g);
@@ -564,25 +566,25 @@ function build(){
     });
     el("line",{x1:M.l,x2:W-M.r,y1:H-M.b,y2:H-M.b,stroke:"#0C2340","stroke-opacity":.35},g);
     el("text",{"class":"axlab",x:W-M.r,y:H-M.b+40,"text-anchor":"end"},g,"Congress (102nd = 1991–92)");
-    el("text",{"class":"ann soft",x:x0+(n-1)*bw,y:M.t+6,"text-anchor":"end"},g,"share of introduced bills enacted: 5% → 1%");
+    el("text",{"class":"ann soft",x:x0+(n-1)*bw,y:M.t+6,"text-anchor":"end"},g,"share of introduced bills enacted: 5% → 1.4%");
   })();
 
   /* S5 · executive orders vs democracy */
   scatter("eoX",
     MODEL.map(function(yr){ return {x:EO[yr],y:LIB[yr]}; }).concat([{x:238,y:.571,out:true}]),
     [0,250],[0,50,100,150,200,250],String,"Executive orders that year",
-    fitEO,[19,91,238],"β = −0.082 per SD · p = 0.002");
+    fitEO,[19,91],"β = −0.080 per SD · p = 0.003");
 
   /* S6 · bills vs democracy */
   scatter("billX",
     MODEL.map(function(yr){ return {x:billsFor(yr)[2],y:LIB[yr]}; }),
-    [150,700],[200,300,400,500,600,700],String,"Bills enacted that Congress (approx.)",
-    fitBill,[193,650],"β = 0.002 per SD · p = 0.809");
+    [150,700],[200,300,400,500,600,700],String,"Public laws enacted that Congress",
+    fitBill,[274,590],"β = −0.001 per SD · p = 0.901");
 
   /* S7 · R² comparison */
   (function(){
     var g = scene("r2");
-    var rows = [["Executive orders + bills, entered separately",.243,"#C8102E","p = 0.004"],["Equal-weight composite of both",.014,"#1F4E8C","not significant"],["Public trust alone",.002,"#6FA8FF","p = 0.847"]];
+    var rows = [["Executive orders + laws, entered separately",.242,"#C8102E","p = 0.007"],["Equal-weight composite of both",.032,"#1F4E8C","not significant"],["Public trust alone",.002,"#6FA8FF","p = 0.847"]];
     var x = lin(0,.3,M.l,W-M.r), top = M.t+10, rowH = Math.min(96,(H-M.b-M.t-20)/rows.length);
     [0,.1,.2,.3].forEach(function(v){
       el("line",{x1:x(v),x2:x(v),y1:top-6,y2:top+rowH*rows.length,stroke:"#C9D4E3"},g);
@@ -612,7 +614,7 @@ function show(i, force){
   var s = STEPS[i];
   Object.keys(scenes).forEach(function(k){ scenes[k].classList.toggle("on", k===s.scene); });
   if (i !== lastStep) animate(scenes[s.scene]);
-  cBig.textContent = s.big; cDen.textContent = s.den; cLab.textContent = s.lab;
+  cFind.textContent = s.find || ""; cBig.textContent = s.big || ""; cDen.textContent = s.den || ""; cLab.textContent = s.lab;
   document.querySelectorAll(".step").forEach(function(el){ el.classList.toggle("is-active", +el.dataset.i === i); });
   lastStep = i;
 }
@@ -652,11 +654,11 @@ function setYear(y){
   tLib.textContent = LIB[y].toFixed(3);
   tEo.textContent = EO[y];
   var c = billsFor(y);
-  if (c){ tBill.textContent = c[2]; tBillS.textContent = c[0]+"th Congress, approx."; }
+  if (c){ tBill.textContent = c[2]; tBillS.textContent = c[0]+"th Congress, public laws"; }
   else { tBill.textContent = "—"; tBillS.textContent = "119th Congress in progress"; }
   tTrust.textContent = TRUST[y]!=null ? Math.round(TRUST[y])+"%" : "—";
   sparkDot.setAttribute("cx",sx(y)); sparkDot.setAttribute("cy",sy(LIB[y]));
-  flag.textContent = y===2025 ? "2025 is shown for context. It is outside the model because the 119th Congress is still in session."
+  flag.textContent = y===2025 ? "2025 is shown for context only. It is outside the model because the 119th Congress is still in session. Trust shows 18%, the average of 2025’s polls; the latest poll (Sept. 2025) was 17%."
     : (TRUST[y]==null ? "No trust poll in this year’s series." : "");
 }
 buildSpark(); setYear(2025);
