@@ -282,7 +282,7 @@ footer a{color:var(--blue)}
   <div class="stars"></div>
   <div class="wrap">
     <p class="ep">Episode VII · The full index</p>
-    <h2>Building the <span class="accent">CISI</span></h2>
+    <h2>Next, the full <span class="accent">CISI</span> adds three more checks on the president</h2>
     <p class="intro">The Congressional Institutional Strength Index (CISI) will measure how strongly Congress constrains the president across five components. This preliminary test used two of them.</p>
 
     <div class="verdict">
@@ -311,7 +311,7 @@ footer a{color:var(--blue)}
         <div class="tile hot"><div class="v" id="tLib">–</div><div class="l">Liberal democracy</div><div class="s">V-Dem index, 0 to 1</div></div>
         <div class="tile"><div class="v" id="tEo">–</div><div class="l">Executive orders</div><div class="s">signed that year</div></div>
         <div class="tile"><div class="v" id="tBill">–</div><div class="l">Laws enacted</div><div class="s" id="tBillS">that Congress</div></div>
-        <div class="tile"><div class="v" id="tTrust">–</div><div class="l">Public trust</div><div class="s">trust Washington, avg. of polls</div></div>
+        <div class="tile"><div class="v" id="tTrust">–</div><div class="l">Public trust</div><div class="s">yearly average of Pew’s smoothed trend</div></div>
       </div>
       <svg id="spark" aria-hidden="true"></svg>
       <p class="flag" id="flag"></p>
@@ -322,7 +322,7 @@ footer a{color:var(--blue)}
 <!-- ===================== FOOTER ===================== -->
 <footer>
   <div class="wrap">
-    <p><b>Data.</b> Liberal democracy: V-Dem Liberal Democracy Index (<i>v2x_libdem</i>), United States, last observation per year, 1991–2025. Executive orders: Federal Register executive order records, counted by signing year. Laws enacted: public laws per Congress from the National Archives (Office of the Federal Register), assigned to both years of each Congress, 102nd–118th. Of the 238 executive orders signed in 2025, 13 were signed by President Biden and 225 by President Trump. Public trust: share who trust the federal government to do what is right “just about always” or “most of the time,” compiled by Pew Research Center from Pew, NES, Gallup, CBS/NYT, ABC/Washington Post and CNN polls, 1958–2025. The model uses the average of each year’s poll trend values, so 2025 counts as 18% even though the latest poll (September 2025) was 17%.</p>
+    <p><b>Data.</b> Liberal democracy: V-Dem Liberal Democracy Index (<i>v2x_libdem</i>), United States, last observation per year, 1991–2025. Executive orders: Federal Register executive order records, counted by signing year. Laws enacted: public laws per Congress from the National Archives (Office of the Federal Register), assigned to both years of each Congress, 102nd–118th. Of the 238 executive orders signed in 2025, 13 were signed by President Biden and 225 by President Trump. Public trust: share who trust the federal government to do what is right “just about always” or “most of the time,” compiled by Pew Research Center from Pew, NES, Gallup, CBS/NYT, ABC/Washington Post and CNN polls, 1958–2025. The model uses the average of each year’s smoothed trend values. For 2025 that is 18% (19% in February, 17% in September), even though both 2025 polls found 17%.</p>
     <p><b>Method.</b> OLS with Newey-West (HAC) standard errors, 3 lags, 1991–2024 (n = 34). Executive orders and bills are entered as z-scores. Two components entered separately: R² = 0.242, F-test p = 0.007; executive orders β = −0.080 (p = 0.003); laws β = −0.001 (p = 0.901). Equal-weight composite: R² = 0.032, not significant (p = 0.37). Public trust alone (n = 33): R² = 0.002, p = 0.847. 2025 is shown for context only; it is not in the two-component model because the 119th Congress is not finished.</p>
     <p><b>Limitations.</b> The sample is small (34 years), residual autocorrelation remains (Durbin-Watson ≈ 0.52), and law counts are recorded per Congress, so both years of a Congress share one value. Correlation across years is not proof that executive orders cause democratic decline.</p>
     <p><b>Built by</b> Eliana Anderson. Preliminary findings from the ABRCMS abstract <i>Executive Aggrandizement or Legislative Gridlock? A Preliminary Test of Congressional Institutional Strength and Democratic Backsliding, 1991–2025</i>. <a href="https://elianaanderson11.github.io/">Back to the portfolio</a>.</p>
@@ -346,6 +346,7 @@ var POLLS = [[1958.92,73,73],[1964.79,77,77],[1966.92,65,65],[1968.79,62,62],[19
 var TERMS = [[1991,1993,"Bush"],[1993,2001,"Clinton"],[2001,2009,"Bush"],[2009,2017,"Obama"],[2017,2021,"Trump"],[2021,2025,"Biden"],[2025,2026,"Trump"]];
 
 var YEARS = []; for (var y=1991;y<=2025;y++) YEARS.push(y);
+function ord(n){ var t = n % 100, u = n % 10; return n + ((t>10 && t<14) ? "th" : u===1 ? "st" : u===2 ? "nd" : u===3 ? "rd" : "th"); }
 function billsFor(y){ for (var i=CONG.length-1;i>=0;i--) if (y>=CONG[i][1] && y<=CONG[i][1]+1) return CONG[i]; return null; }
 
 /* Model inputs, rebuilt exactly as in the notebook */
@@ -401,30 +402,30 @@ new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersect
 
 /* ---------- ENGINE: steps ---------- */
 var STEPS = [
-  {scene:"lib", ep:"Episode I · The phantom decline", title:"U.S. democracy has been slipping",
-   text:"<p>V-Dem’s Liberal Democracy Index scores a country from 0 to 1 on free elections <i>and</i> on the limits placed on power: courts, legislatures, civil liberties.</p><p>The U.S. peaked at <span class='stat'>0.852</span> in 2013. By 2025 it had fallen to <span class='stat'>0.571</span>, the lowest score in the 35 years studied.</p>",
+  {scene:"lib", ep:"Episode I · The phantom decline", title:"U.S. democracy scores have fallen since 2013, reaching a 35-year low in 2025",
+   text:"<p>V-Dem’s Liberal Democracy Index scores a country from 0 to 1 on free elections <i>and</i> on the limits placed on power: courts, legislatures, civil liberties.</p><p>The U.S. peaked at <span class='stat'>0.852</span> in 2013 and stood at <span class='stat'>0.571</span> in 2025.</p>",
    big:"0.571", den:"/ 1.0", lab:"U.S. liberal democracy score, 2025"},
-  {scene:"trust", ep:"Episode II · The obvious suspect", title:"Americans lost trust in Washington…",
-   text:"<p>In 1964, <span class='stat'>77%</span> of Americans trusted the federal government to do what is right most of the time. In the latest poll, September 2025, <span class='stat'>17%</span> did.</p><p>The model uses one number per year, the average of that year’s polls, so 2025 counts as <span class='stat'>18%</span>.</p><p>Across 163 polls, trust falls by about half a point every year (p &lt; 0.001).</p>",
+  {scene:"trust", ep:"Episode II · The obvious suspect", title:"Fewer than 1 in 5 Americans trust the federal government, down from more than 3 in 4 in 1964",
+   text:"<p>The question asks whether people trust the federal government to do what is right most of the time. Trust peaked at <span class='stat'>77%</span> in 1964; the latest poll, in September 2025, found <span class='stat'>17%</span>.</p><p>Why does the model use <span class='stat'>18%</span> for 2025? It needs one trust number per year to match the yearly democracy score. Pew’s data includes a smoothed trend that evens out poll-to-poll noise. Both 2025 polls found 17%, but the smoothed trend stood at 19% in February and 17% in September. The model averages those two values: 18%.</p><p>Across 163 polls, trust falls by about half a point every year (p &lt; 0.001).</p>",
    big:"17%", den:"from 77%", lab:"trust the federal government, Sept. 2025 vs. 1964"},
-  {scene:"trustX", ep:"Episode II · The obvious suspect", title:"…but lost trust doesn’t explain the decline",
-   text:"<p>Put each year’s trust next to that year’s democracy score and the pattern disappears. Trust explains <span class='stat'>0.2%</span> of the variation (R² = 0.002, p = 0.847).</p><p>Falling trust is real, but it isn’t the mechanism. The answer has to be institutional.</p>",
-   find:"Years with lower trust did not have lower democracy scores", lab:"Evidence: trust explains 0.2% of the variation · R² = 0.002, p = 0.847"},
-  {scene:"eo", ep:"Episode III · Revenge of the executive", title:"Presidents can act without Congress",
-   text:"<p>An executive order lets a president act without Congress. From 1991 to 2024, presidents signed between <span class='stat'>19</span> and <span class='stat'>91</span> a year.</p><p>In 2025 the count jumped to <span class='stat'>238</span>, 225 of them signed by President Trump, the most in any year since 1942.</p>",
+  {scene:"trustX", ep:"Episode II · The obvious suspect", title:"Years with lower trust did not have lower democracy scores",
+   text:"<p>Put each year’s trust next to that year’s democracy score and no pattern appears. Trust explains <span class='stat'>0.2%</span> of the variation (R² = 0.002, p = 0.847).</p><p>Falling trust is real, but it doesn’t explain the decline. The next place to look is the institutions.</p>",
+   lab:"Evidence: trust explains 0.2% of the variation · R² = 0.002, p = 0.847"},
+  {scene:"eo", ep:"Episode III · Revenge of the executive", title:"Executive orders jumped to 238 in 2025, more than double any other year since 1991",
+   text:"<p>An executive order lets a president act without Congress. From 1991 to 2024, presidents signed between <span class='stat'>19</span> and <span class='stat'>91</span> a year.</p><p>Of 2025’s orders, 225 were signed by President Trump. No year since 1942 had more.</p>",
    big:"238", den:"orders", lab:"executive orders signed in 2025 · 225 by President Trump"},
-  {scene:"bills", ep:"Episode IV · A new gridlock", title:"Congress is passing fewer laws",
-   text:"<p>The 102nd Congress (1991–92) enacted <span class='stat'>590</span> public laws, about 5% of the bills it introduced. The 118th (2023–24) enacted <span class='stat'>274</span>, about 1.4% of 19,315.</p><p>More bills in, fewer laws out: the textbook picture of gridlock.</p>",
+  {scene:"bills", ep:"Episode IV · A new gridlock", title:"Congress enacted 274 laws in 2023–24, down from 590 in 1991–92",
+   text:"<p>The 102nd Congress turned about 5% of its bills into law. The 118th turned about 1.4% of 19,315 into law.</p><p>Congress introduced more bills but turned a smaller share of them into law, a common measure of gridlock.</p>",
    big:"274", den:"laws", lab:"public laws enacted by the 118th Congress"},
-  {scene:"eoX", ep:"Episode V · The executive strikes back", title:"More executive orders, lower democracy scores",
-   text:"<p>Years with more executive orders had lower democracy scores, even after accounting for how many laws Congress passed.</p><p>The evidence: both measures, standardized, go into one regression with Newey-West standard errors, 1991–2024 (n = 34). Each standard-deviation rise in executive orders goes with a <span class='stat'>0.080</span> drop in the democracy score (p = 0.003).</p><p>The hollow ring is 2025, shown for context only. It was not used to build the model, so it can’t confirm it.</p>",
-   find:"Years with more executive orders had lower democracy scores", lab:"Evidence: −0.080 per standard deviation of executive orders · p = 0.003"},
-  {scene:"billX", ep:"Episode V · The executive strikes back", title:"Fewer laws didn’t mean lower democracy scores",
-   text:"<p>In the same model, legislative productivity shows no independent effect (<span class='stat'>p = 0.901</span>).</p><p>Once executive action is accounted for, Congress passing fewer laws doesn’t move the democracy score.</p>",
-   find:"The number of laws passed showed no clear link to democracy", lab:"Evidence: legislative productivity, p = 0.901 · not significant"},
-  {scene:"r2", ep:"Episode VI · Return of the index", title:"Combining the two measures hides the signal",
-   text:"<p>Entered separately, the two components explain about a quarter of the variance (<span class='stat'>R² = 0.242</span>, p = 0.007).</p><p>Averaged into one equal-weight score, the relationship vanishes (<span class='stat'>R² = 0.032</span>). A strong signal plus a null one becomes noise, so executive indicators should carry more weight in the full index.</p>",
-   find:"Averaging the two measures together hides the signal", lab:"Evidence: R² = 0.242 separately · R² = 0.032 as an equal-weight average"}
+  {scene:"eoX", ep:"Episode V · The executive strikes back", title:"The more executive orders a year had, the lower its democracy score",
+   text:"<p>This holds even after accounting for how many laws Congress passed.</p><p>The evidence: both measures, standardized, go into one regression with Newey-West standard errors, 1991–2024 (n = 34). Each standard-deviation rise in executive orders goes with a <span class='stat'>0.080</span> drop in the democracy score (p = 0.003).</p><p>The hollow ring is 2025, shown for context only. It was not used to build the model, so it can’t confirm it.</p>",
+   lab:"Evidence: −0.080 per standard deviation of executive orders · p = 0.003"},
+  {scene:"billX", ep:"Episode V · The executive strikes back", title:"Executive orders tracked the decline; gridlock did not",
+   text:"<p>In the same model, the number of laws Congress passed shows no independent effect (<span class='stat'>p = 0.901</span>).</p><p>Once executive action is accounted for, legislative productivity doesn’t move the democracy score.</p>",
+   lab:"Evidence: legislative productivity, p = 0.901 · not significant"},
+  {scene:"r2", ep:"Episode VI · Return of the index", title:"Kept separate, the two measures explain about a quarter of the variation; averaged, almost none",
+   text:"<p>Entered separately: <span class='stat'>R² = 0.242</span>, p = 0.007. Averaged into one equal-weight score: <span class='stat'>R² = 0.032</span>, not significant.</p><p> A strong signal plus a null one becomes noise, so executive indicators should carry more weight in the full index.</p>",
+   lab:"Evidence: R² = 0.242 separately · R² = 0.032 as an equal-weight average"}
 ];
 
 var stepsEl = document.getElementById("steps");
@@ -549,7 +550,8 @@ function build(){
     });
     [1995,2005,2015,2025].forEach(function(yr){ el("text",{"class":"tick",x:x0+(yr-1991+.5)*bw,y:H-M.b+42,"text-anchor":"middle"},g,String(yr)); });
     el("text",{"class":"ann hot",x:x0+34.5*bw-bw*.2,y:y(238)-10,"text-anchor":"end"},g,"2025 · 238");
-    el("text",{"class":"ann",x:x0+30.5*bw,y:y(91)-10,"text-anchor":"middle"},g,"91");
+    el("line",{x1:M.l,x2:W-M.r,y1:y(91),y2:y(91),stroke:"#1F4E8C","stroke-width":1.5,"stroke-dasharray":"5 5"},g);
+    el("text",{"class":"ann",x:M.l+6,y:y(91)-8},g,"1991–2024 high: 91 (2021)");
   })();
 
   /* S4 · bills per Congress */
@@ -561,8 +563,8 @@ function build(){
     CONG.forEach(function(c,i){
       var hot = i===0 || i===n-1;
       el("rect",{"class":"bar",x:x0+i*bw+bw*.14,y:y(c[2]),width:bw*.72,height:(H-M.b)-y(c[2]),fill:i===n-1?"#C8102E":"#0C2340","fill-opacity":hot?1:.8,style:"transition-delay:"+(i*40)+"ms"},g);
-      if (!narrow || i%4===0 || i===n-1) el("text",{"class":"tick",x:x0+(i+.5)*bw,y:H-M.b+20,"text-anchor":"middle"},g,c[0]+"th");
-      if (!narrow || hot) el("text",{"class":"tick",x:x0+(i+.5)*bw,y:y(c[2])-8,"text-anchor":"middle","font-weight":hot?800:400,fill:i===n-1?"#C8102E":null},g,c[2]);
+      if (!narrow || i%4===0 || i===n-1) el("text",{"class":"tick",x:x0+(i+.5)*bw,y:H-M.b+20,"text-anchor":"middle"},g,ord(c[0]));
+      if (hot) el("text",{"class":"tick",x:x0+(i+.5)*bw,y:y(c[2])-8,"text-anchor":"middle","font-weight":hot?800:400,fill:i===n-1?"#C8102E":null},g,c[2]);
     });
     el("line",{x1:M.l,x2:W-M.r,y1:H-M.b,y2:H-M.b,stroke:"#0C2340","stroke-opacity":.35},g);
     el("text",{"class":"axlab",x:W-M.r,y:H-M.b+40,"text-anchor":"end"},g,"Congress (102nd = 1991–92)");
@@ -654,11 +656,11 @@ function setYear(y){
   tLib.textContent = LIB[y].toFixed(3);
   tEo.textContent = EO[y];
   var c = billsFor(y);
-  if (c){ tBill.textContent = c[2]; tBillS.textContent = c[0]+"th Congress, public laws"; }
+  if (c){ tBill.textContent = c[2]; tBillS.textContent = ord(c[0])+" Congress, public laws"; }
   else { tBill.textContent = "—"; tBillS.textContent = "119th Congress in progress"; }
   tTrust.textContent = TRUST[y]!=null ? Math.round(TRUST[y])+"%" : "—";
   sparkDot.setAttribute("cx",sx(y)); sparkDot.setAttribute("cy",sy(LIB[y]));
-  flag.textContent = y===2025 ? "2025 is shown for context only. It is outside the model because the 119th Congress is still in session. Trust shows 18%, the average of 2025’s polls; the latest poll (Sept. 2025) was 17%."
+  flag.textContent = y===2025 ? "2025 is shown for context only. It is outside the model because the 119th Congress is still in session. Trust shows 18%, the average of Pew’s smoothed trend for 2025 (19% in February, 17% in September). Both 2025 polls found 17%."
     : (TRUST[y]==null ? "No trust poll in this year’s series." : "");
 }
 buildSpark(); setYear(2025);
